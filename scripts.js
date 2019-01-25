@@ -9,11 +9,33 @@ document.addEventListener("DOMContentLoaded", function () {
     btn1.addEventListener('click', function () {
         let div = document.createElement('div');
         div.className = 'blackSquare';
-        div.id = 'div' + clickCount++;
+        div.id = clickCount;
+        let divText = document.createTextNode(clickCount);
+        div.style.color = 'white';
+        clickCount++;
         document.body.appendChild(div);
         div.style.height = '100px';
         div.style.width = '100px';
         div.style.backgroundColor = 'black';
-        div.style.display = 'inline-flex';
+        div.style.float = 'left';
+        div.addEventListener('mouseover', function() {
+            div.appendChild(divText);
+        })
+        div.addEventListener('mouseout', function() {
+            div.removeChild(divText);
+        })
+        div.addEventListener('click', function() {
+            div.style.backgroundColor = getRandoColor();
+        })
     })
+    function getRandoColor() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return 'rgb(' + r + ', ' + g + ', ' + b + ')'; //rgb(0, 0, 0);
+    }
+
+    
+
+
 })
