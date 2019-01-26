@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let nextDiv = div.nextSibling;
             if(div.id % 2 == 0) { //check for even
                 document.body.removeChild(nextDiv);
+                
             } else {
                 document.body.removeChild(prevDiv);
             }
