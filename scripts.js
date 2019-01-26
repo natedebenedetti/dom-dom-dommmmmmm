@@ -18,14 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
         div.style.width = '100px';
         div.style.backgroundColor = 'black';
         div.style.float = 'left';
-        div.addEventListener('mouseover', function() {
+        div.addEventListener('mouseover', function () {
             div.appendChild(divText);
         })
-        div.addEventListener('mouseout', function() {
+        div.addEventListener('mouseout', function () {
             div.removeChild(divText);
         })
-        div.addEventListener('click', function() {
+        div.addEventListener('click', function () {
             div.style.backgroundColor = getRandoColor();
+        })
+        div.addEventListener('dblclick', function () {
+            let prevDiv = div.previousSibling;
+            let nextDiv = div.nextSibling;
+            if(div.id % 2 != 0) { //check for even
+                document.body.removeChild(nextDiv);
+            } else {
+                document.body.removeChild(prevDiv);
+            }
         })
     })
     function getRandoColor() {
@@ -35,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return 'rgb(' + r + ', ' + g + ', ' + b + ')'; //rgb(0, 0, 0);
     }
 
-    
+
 
 
 })
