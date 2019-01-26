@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         div.addEventListener('dblclick', function () {
             let prevDiv = div.previousSibling;
             let nextDiv = div.nextSibling;
-            if(div.id % 2 != 0) { //check for even
+            if(div.id % 2 == 0) { //check for even
                 document.body.removeChild(nextDiv);
             } else {
                 document.body.removeChild(prevDiv);
