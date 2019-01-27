@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
         div.className = 'blackSquare';
         div.id = clickCount;
         let divText = document.createTextNode(clickCount);
+        div.style.display = 'flex';
+        div.style.justifyContent = 'center';
+        div.style.alignItems = 'center';
         div.style.color = 'white';
         clickCount++;
         document.body.appendChild(div);
@@ -23,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         div.style.float = 'left';
         div.addEventListener('mouseover', function () {
             div.appendChild(divText);
-            div.style.textAlign = 'center';
-            div.style.verticalAlign = 'middle';
         })
         div.addEventListener('mouseout', function () {
             div.removeChild(divText);
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else if (div.id % 2 == 0 && div.nextElementSibling.className == 'blackSquare') { //check for even
                     div.nextElementSibling.remove(div);
                 } else { // code produces error at console every time due to there not being any element after the square.
-                    alert("I tried to delete the square after me EVEN though it doesn't exist."); 
+                    alert("I tried to delete the square after me EVEN though it doesn't exist.");
                 }
 
             } catch (error) { // this catches the error produced above and turns it into my alert.
